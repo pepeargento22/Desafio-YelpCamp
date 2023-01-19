@@ -19,12 +19,14 @@ function cargarListaUsuarios() {
         if (xhr.status == 200) {
             lista_usuarios = JSON.parse(xhr.response);
             console.log(lista_usuarios);
+            console.log('+++++++++++++++++');
         }
     });
     xhr.send();
 }
-function registrarUsuario(nuevoUsuario, nuevaContraseña) {
-    
+function registrarUsuario(nuevoUsuario) {
+    lista_usuarios.push(nuevoUsuario);
+    console.log(lista_usuarios);
 }
 
 formulario.addEventListener('submit', function(e) {
@@ -46,7 +48,6 @@ formulario.addEventListener('submit', function(e) {
             if (lista_usuarios[j].Username == usuario_nuevo.Username) {
                 error[0].innerText = 'That username already exists';
                 if (error[0].classList.value == 'error-validacion') {
-                    console.log('ah la verga');
                     error[0].classList.toggle('error-validacion');
                     input_usuario.style.border = '2px solid red';
                 }
@@ -54,9 +55,10 @@ formulario.addEventListener('submit', function(e) {
             }
         };
         if (error[0].classList.value != 'error-validacion') {
-            return
+            return /* el submit se corta aca si ya existe el nombre de usuario */
         }
-       /* registrarUsuario(); FALTA CREAR ESTA FUNCION*/
+        /* necesito trabajar con promesas porque corre antes esta funcion que la que carga la lista */
+        registrarUsuario(usuario_nuevo); 
         for (let i = 0; i < error.length; i++) {
             if (error[i].classList.value != 'error-validacion') {
                 error[i].classList.toggle('error-validacion');
