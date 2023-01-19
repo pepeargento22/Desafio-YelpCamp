@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos_busquedaCampgrounds.css">
+    <link rel="stylesheet" href="css/estilos_header&footer.css">
+    <title>YelpCamp - Campgrounds</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="Assets/Logo.svg" alt="logo YelpCamp">
+            <a class="inicio-desktop" href="index.html">Home</a>
+        </div>
+        <div>
+            <span class="usuario"></span>
+            <a class="cerrar-sesion" href="busquedaCampgrounds.html">Logout</a>
+            <a class="inicio-sesion" href="login.html">Login</a>
+            <a class="boton" href="registro.html">Create an account</a>
+            <img class="menu-tablet" src="Assets/Hamburger Menu.svg" alt="boton menu">
+            <ul class="menu">
+                <!-- VAN EN ESTE ORDEN LOS LI, CON "DISPLAY: NONE" LOS QUE NO VAYAN.
+                EN LOCALSTORAGE VOY A GUARDAR LOS DATOS DE LOS USUARIOS-->
+                <li class="item-usuario"><span></span></li>
+                <li class="item"><a href="index.html">Home</a></li>
+                <li class="item"><a href="busquedaCampgrounds.html">Logout</a></li>
+                <li class="item"><a href="login.html">Login</a></li>
+                <li class="item"><a href="registro.html">Create an account</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="flex-container">
+        <div class="buscador">
+            <h2>Welcome to YelpCamp!</h2>
+            <p>View our hand-picked campgrounds from all over the world, or add your own.</p>
+            <input type="text" name="campground" maxlength="25" placeholder="Search for camps">
+            <button>Search</button>
+            <a href="añadirCampground.html">Or add your own campground</a>
+        </div>
+        <div class="elemento-campground">
+            <img src="Assets/Camp Images/High Quality Images/Mount Ulap.png" alt="Mount Ulap">
+            <h3>Mount Ulap</h3>
+            <p>One of the most famous hikes in Benguet is Mt Ulap in Itogon.</p>
+            <a href="">View Campground</a>
+        </div>
+        <div class="elemento-campground">
+            <img src="Assets/Camp Images/High Quality Images/Calagus Islands.jpg" alt="Calaguas Islands">
+            <h3>Calaguas Islands</h3>
+            <p>A paradise of islands that can rival the white sand beauty of Boracay.</p>
+            <a href="">View Campground</a>
+        </div>
+        <div class="elemento-campground">
+            <img src="Assets/Camp Images//High Quality Images/Onay Beach.jpg" alt="Onay Beach">
+            <h3>Onay Beach</h3>
+            <p>This is one of the best beach camping sites, beautiful and pristine.</p>
+            <a href="">View Campground</a>
+        </div>
+        <div class="elemento-campground">
+            <img src="Assets/Camp Images/High Quality Images/Seven Sisters Waterfall.jpg" alt="Seven Sisters Waterfall">
+            <h3>Seven Sisters Waterfall</h3>
+            <p>The Seven Sisters is the 39th tallest waterfall in Norway.</p>
+            <a href="">View Campground</a>
+        </div>
+        <div class="elemento-campground">
+            <img src="Assets/Camp Images/High Quality Images/Latik Riverside.jpg" alt="Latik Riverside">
+            <h3>Latik Riverside</h3>
+            <p>Philippines is one of the most dazzling countries in all of Asia.</p>
+            <a href="">View Campground</a>
+        </div>
+        <div class="elemento-campground">
+            <img src="Assets/Camp Images/High Quality Images/Buloy Springs.jpg" alt="Buloy Springs">
+            <h3>Buloy Springs</h3>
+            <p>This is one of the best beach camping sites, beautiful and pristine.</p>
+            <a href="">View Campground</a>
+        </div>
+    </main>
+    <footer>
+        <div><img src="Assets/Logo.svg" alt="logo de YelpCamp"></div>
+    </footer>
+
+    <script src="js/header.js"></script>
+</body>
+</html>

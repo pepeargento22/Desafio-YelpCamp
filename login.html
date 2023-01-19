@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos_login_registro.css">
+    <link rel="stylesheet" href="css/estilos_formulario.css">
+    <title>Sign in - YelpCamp</title>
+</head>
+<body class="grid-container">
+    <header class="grid-item1 flex-container">
+        <div><img src="Assets/Logo.svg" alt="logo YelpCamp"></div>
+        <a href="busquedaCampgrounds.html">← Back to campgrounds</a>
+    </header>
+    <main class="grid-item2">
+        <h1>Start exploring camps from all around the world.</h1>
+        <form action="" method="post">
+            <label for="usuario">Username</label>
+            <input
+                id="usuario" 
+                name="usuario"    
+                type="text"
+                maxlength="30"
+                placeholder="messi_22"
+                required
+            >
+            <div class="error-validacion"></div>
+            <label for="contraseña">Password</label>
+            <input 
+                id="contraseña"
+                name="contraseña"
+                type="password"
+                maxlength="20"
+                placeholder="Enter Your Password"
+                required
+                >
+                <div class="error-validacion">Username and/or password are incorrect</div>
+            <input id="boton-login" type="submit" value="Login">
+        </form>
+        <span>Not a user yet?</span>
+        <a class="link-registro" href="registro.html">Create an account</a>
+    </main>
+    <footer class="grid-item3">
+        <p>"YelpCamp has honestly saved me hours of research time, and the camps on here are definitely well picked and added."</p>
+        <div>
+            <img src="Assets/User Testimonial.svg" alt="user profile picture">
+            <ul>
+                <li><strong>May Andrews</strong></li>
+                <li>Professional Hiker</li>    
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

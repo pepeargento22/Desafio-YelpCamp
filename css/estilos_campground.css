@@ -1,0 +1,138 @@
+/* -------------- REGLAS GENERALES ---------------- */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #5e5e5e;
+}
+
+
+/* -------------- MAIN ---------------- */
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+    max-height: 1200px;
+}
+
+.flex-item {
+    padding: 2rem;
+    border: 2px solid #ddd;
+    border-radius: 0.2rem;
+}
+
+.texto {
+    width: 60%;
+}
+
+.texto > img,
+.mapa img {
+    width: 100%;
+    border-radius: 0.3rem;
+}
+
+.texto > img {
+    margin-bottom: 1rem; 
+}
+
+.texto strong,
+.texto > span {
+    display: inline-block;
+    color: black;
+}
+
+.texto > strong {
+    font-size: 1.4rem;
+}
+
+.texto span {
+    float: right;
+}
+
+.texto p {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.texto ul {
+    list-style-type: none;
+}
+
+.texto li {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #ddd;
+}
+
+.texto a {
+    width: auto;
+    float: right;
+    padding-left: 3rem;
+    text-decoration: none;
+}
+
+.texto a img {
+    position: absolute;
+    top: 0.7rem;
+    left: 1rem;
+}
+
+.mapa {
+    width: 37%;
+}
+
+
+@media screen and (max-width: 950px) {
+    
+    /* -------------- MAIN ---------------- */
+
+    .flex-container {
+        max-height: none;
+        align-items: center;
+    }
+
+    .flex-item {
+        width: 100%;
+    }
+
+    .mapa {
+        width: auto;
+    }
+
+    .texto > img {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .texto a {
+        display: block;
+        float: left;
+        margin-left: 0;
+    }
+
+    .mapa img {
+        width: 100%;
+        object-fit: contain;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    
+    /* -------------- MAIN ---------------- */
+
+    .flex-item {
+        padding: 1rem;
+    }
+
+    .texto > strong {
+        font-size: 1.2rem;
+    }
+
+    .texto span {
+        font-size: 0.8rem;
+    }
+}

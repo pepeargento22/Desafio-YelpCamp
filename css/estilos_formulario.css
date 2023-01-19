@@ -1,0 +1,74 @@
+/* ----------- FORM ----------- */
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: black;
+    text-transform: capitalize;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5rem;
+} 
+
+input,
+textarea {
+    padding: 1rem;
+    border-width: 0;
+    border-radius: 0.3rem;
+    background-color: #f7f7f7;
+}
+
+input:focus,
+textarea:focus {
+    outline-color: #0099ff;
+}
+
+form div {
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+    color: red;
+    font-size: 0.8rem;
+}
+
+.error-validacion {
+    color: transparent;
+}
+
+textarea {
+    height: 170px;
+    overflow: hidden;
+}
+
+input:last-child {
+    font-weight: 600;
+    color: #f8f8f8;
+    background-color: black;
+}
+
+::placeholder {
+    color: #b7b7b7; 
+}
+
+
+@media screen and (max-width: 500px) {
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    input,
+    textarea {
+        padding: 0.5rem;
+    }
+
+    form div {
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+    }
+}

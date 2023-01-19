@@ -1,0 +1,152 @@
+/* -------------- REGLAS GENERALES ---------------- */
+
+body {
+    padding: 2rem 6rem;
+    background-color: #fffff6;
+}
+
+
+/* -------------- HEADER ---------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+div {
+    position: relative;
+}
+
+header div:first-child {
+    position: relative;
+    width: auto;
+    padding-right: 1rem;
+    padding-top: 0.7rem;
+}
+
+header div a {
+    text-decoration: none;
+}
+
+.inicio-desktop {
+    display: inline;
+    position: relative;
+    top: -8px;
+    margin-left: 1.5rem;
+    color: #5e5e5e;
+    font-weight: 600;
+}
+
+header ul {
+    display: none;
+    position: absolute;
+    top: 48px;
+    right: 0;
+    width: 140px;
+    list-style-type: none;
+    z-index: 1;
+}
+
+.menu-tablet,
+.inicio-tablet,
+.usuario,
+.cerrar-sesion {
+    display: none;
+}
+
+
+.inicio-sesion,
+.boton {
+    display: inline;
+}
+
+.boton {
+    position: relative;
+    padding: 1rem 1.5rem;
+    margin-left: 1rem;
+    border-radius: 0.3rem;
+    width: 100%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #f8f8f8;
+    background-color: black;
+}
+
+
+/* -------------- FOOTER ---------------- */
+
+footer {
+    margin-top: 4rem;
+}
+
+
+@media screen and (max-width: 950px) {
+    
+    /* ------------ REGLAS GENERALES ---------- */
+
+    body {
+        padding: 2rem;
+    }
+
+
+    /* ------------ HEADER ---------- */
+
+    .inicio-desktop,
+    .inicio-sesion,
+    .boton {
+        display: none;
+    }
+
+    .menu-tablet {
+        display: block;
+        position: relative;
+        bottom: -20px;
+        padding: 0.2rem;
+        border-radius: 0.2rem;
+        background-color: #d4d4d4;
+    }
+
+    .visible {
+        display: block
+    }
+
+    li {
+        padding: 0.2rem 0.4rem;
+        background-color: #d4d4d4;
+    }
+
+    .item-usuario {
+        padding-bottom: 0.5rem;
+    }
+
+    .item:hover {
+        background-color: black;
+    }
+
+
+    li a {
+        display: inline-block;
+        width: 100%;
+    }
+
+    li:hover a {
+        color: #f2f2f2;
+    }
+
+    /* ------------ FOOTER ---------- */
+
+    footer {
+        margin-top: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+
+    /* ----------- REGLAS GENERALES ------------ */
+
+    body {
+        padding: 1rem;
+    }
+}

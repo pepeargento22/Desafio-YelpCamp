@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YelpCamp - Campground Review</title>
+    <link rel="stylesheet" href="css/estilos_header&footer.css">
+    <link rel="stylesheet" href="css/estilos_formulario.css">
+    <link rel="stylesheet" href="css/estilos_reseña.css">
+</head>
+<body class="flex-container">
+    <header>
+        <div>
+            <img src="Assets/Logo.svg" alt="logo YelpCamp">
+            <a class="inicio-desktop" href="index.html">Home</a>
+        </div>
+        <div>
+            <span class="usuario"></span>
+            <a class="cerrar-sesion" href="busquedaCampgrounds.html">Logout</a>
+            <img class="menu-tablet" src="Assets/Hamburger Menu.svg" alt="boton menu">
+            <ul class="menu">
+                <li class="item">holaaaaa</li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <h2>Add New Comment</h2>
+        <form action="" method="post">
+            <label for="reseña">Description</label>
+            <textarea 
+                name="reseña"
+                id="reseña"
+                cols="30" 
+                placeholder="This was probably the best camp I've visited this past year, definitely recommend visiting any time soon" 
+                required></textarea>
+            <div class="error-validacion"></div>
+
+            <input id="boton" type="submit" value="Post Comment">
+        </form>
+    </main>
+    <footer>
+        <div><img src="Assets/Logo.svg" alt="logo de YelpCamp"></div>
+    </footer>
+
+    <script src="js/header.js"></script>
+</body>
+</html>

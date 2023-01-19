@@ -1,0 +1,192 @@
+/* ----------- REGLAS GENERALES ---------- */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #5e5e5e;;
+}
+
+body {
+    padding-left: 6rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 20% auto;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.grid-item1 {
+    grid-area: 1 / 1 / span 1 / span 1;
+    margin-top: 4rem;
+    margin-right: 20%;
+}
+
+.grid-item2 {
+    grid-area: 2 / 1 / span 1 / span 1;
+    margin-top: 6rem;
+    margin-right: 22%;
+}
+
+.grid-item3 {
+    grid-area: 1 / 2 / span 2 / span 1;
+    padding: 60% 20% 0 20%;
+    background-color: #f3f3f3;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* ----------- HEADER ---------- */
+
+header a {
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+
+/* ----------- MAIN ---------- */
+
+h1 {
+    color: black;
+    margin-bottom: 2rem;
+}
+
+form {
+    margin-bottom: 1.5rem;
+}
+
+.link-registro,
+.link-login {
+    color: #00aaff;
+    font-weight: 600;
+}
+
+
+/* ----------- FOOTER ---------- */
+
+footer p {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: black;
+}
+
+footer div {
+    position: relative;
+}
+
+footer div ul {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 120px;
+    margin-left: 0.8rem;
+    list-style-type: none;
+}
+
+ul li {
+    font-size: 0.9rem;
+}
+
+ul li:first-child {
+    padding-bottom: 0.2rem;
+}
+
+footer li strong {
+    color: black;
+}
+
+
+@media screen and (max-width: 950px) {
+    
+    /* -------- REGLAS GENERALES -------- */
+
+    body {
+        padding: 0;
+    }
+
+    .grid-container {
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 65% 25%;
+    }
+
+    .grid-item1 {
+        margin-top: 2rem;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    .grid-item2 {
+        margin-top: 1.5rem;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    .grid-item3 {
+        grid-area: 3 / 1 / span 1 / span 1;
+        padding: 7% 5%;
+    }
+
+
+    /* -------- MAIN -------- */
+
+    form {
+        padding-right: 30%;
+        margin-bottom: 1rem;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+
+    /* -------- REGLAS GENERALES -------- */
+
+    .grid-container {
+        grid-template-rows: 10% 60% 30%;
+    }
+
+    .grid-item1 {
+        margin-top: 1rem;
+        margin-right: 3%;
+        margin-left: 3%;
+    }
+
+    .grid-item2 {
+        margin-top: 1.5rem;
+        margin-right: 3%;
+        margin-left: 3%;
+    }
+
+    .grid-item3 {
+        padding: 6% 3%;
+    }
+    
+
+    /* -------- HEADER -------- */
+
+    header a {
+        font-size: 0.8rem;
+    }
+
+
+    /* -------- MAIN -------- */
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+
+    /* -------- FOOTER -------- */
+
+    footer p {
+        font-size: 1.2rem;
+    }
+}
