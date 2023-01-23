@@ -11,9 +11,45 @@ let usuario_nuevo = {
 
 const expresion = /(?=.*[0-9])/; /* el string debe contener al menos 1 numero */
 
+function registrarUsuario(nuevoUsuario) {
+    lista_usuarios.push(nuevoUsuario);
+    console.log(lista_usuarios);
+    console.log('-------------');
+}
 function cargarListaUsuarios() {
     /* cargar pagina con Live Server de lo contrario esta funcion tira error por CORS */
-    let xhr = new XMLHttpRequest();
+    return fetch("js/listaUsuarios.json")
+    .then(response => response.json())
+    .then(lista => {
+        console.log(lista);
+        console.log('+++++++++++++');
+        /* reviso que el usuario no esté repetido */
+        for (let j = 0; j < lista.length; j++) {
+            if (lista[j].Username == usuario_nuevo.Username) {
+                error[0].innerText = 'That username already exists';
+                if (error[0].classList.value == 'error-validacion') {
+                    error[0].classList.toggle('error-validacion');
+                    input_usuario.style.border = '2px solid red';
+                    console.log('ERROR');
+                }
+                break;
+            }
+        };
+        if (error[0].classList.value != 'error-validacion') {
+            return console.log('tula'); /* la funcion se corta aca si ya existe el nombre de usuario */
+        }
+        /* una vez confirmado que el usuario no esté repetido, lo agrego a la lista de usuarios */
+        /* registrarUsuario(usuario_nuevo); */
+        for (let i = 0; i < error.length; i++) {
+            if (error[i].classList.value != 'error-validacion') {
+                error[i].classList.toggle('error-validacion');
+                input_usuario.style.border = '0';
+                input_contraseña.style.border = '0';
+            }
+        }
+        console.log('VALIDO!');
+    })
+    /* let xhr = new XMLHttpRequest();
     xhr.open("get", "js/listaUsuarios.json");
     xhr.addEventListener("load", function() {
         if (xhr.status == 200) {
@@ -22,12 +58,9 @@ function cargarListaUsuarios() {
             console.log('+++++++++++++++++');
         }
     });
-    xhr.send();
+    xhr.send(); */
 }
-function registrarUsuario(nuevoUsuario) {
-    lista_usuarios.push(nuevoUsuario);
-    console.log(lista_usuarios);
-}
+
 
 formulario.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -44,29 +77,6 @@ formulario.addEventListener('submit', function(e) {
         usuario_nuevo.Username = input_usuario.value;
         usuario_nuevo.Password = input_contraseña.value;
         cargarListaUsuarios();
-        for (let j = 0; j < lista_usuarios.length; j++) {
-            if (lista_usuarios[j].Username == usuario_nuevo.Username) {
-                error[0].innerText = 'That username already exists';
-                if (error[0].classList.value == 'error-validacion') {
-                    error[0].classList.toggle('error-validacion');
-                    input_usuario.style.border = '2px solid red';
-                }
-                break;
-            }
-        };
-        if (error[0].classList.value != 'error-validacion') {
-            return /* el submit se corta aca si ya existe el nombre de usuario */
-        }
-        /* necesito trabajar con promesas porque corre antes esta funcion que la que carga la lista */
-        registrarUsuario(usuario_nuevo); 
-        for (let i = 0; i < error.length; i++) {
-            if (error[i].classList.value != 'error-validacion') {
-                error[i].classList.toggle('error-validacion');
-                input_usuario.style.border = '0';
-                input_contraseña.style.border = '0';
-            }
-        }
-        console.log('VALIDO!');
     } else {
         error[1].innerText = 'Password must contain at least 1 number';
         if (error[1].classList.value == 'error-validacion') {
