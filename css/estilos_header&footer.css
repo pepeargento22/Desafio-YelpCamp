@@ -128,9 +128,11 @@ footer {
     li a {
         display: inline-block;
         width: 100%;
+        font-size: 0.9rem;
     }
 
     li:hover a {
+        font-weight: bold;
         color: #f2f2f2;
     }
 
