@@ -3,7 +3,6 @@ let input_usuario = document.getElementById('usuario');
 let input_contraseña = document.getElementById('contraseña');
 let error = document.querySelectorAll('.error-validacion');
 
-/* let lista_usuarios = []; */
 let usuario_nuevo = {
     "Username": '',
     "Password": ''
@@ -11,10 +10,12 @@ let usuario_nuevo = {
 
 const expresion = /(?=.*[0-9])/; /* el string debe contener al menos 1 numero */
 
+/* METER ASYNC Y AWAIT A LAS FUNCIONES CORRESPONDIENTES */
 function registrarUsuario(nuevoUsuario, lista_usuarios) {
     lista_usuarios.push(nuevoUsuario);
     console.log(lista_usuarios);
     console.log('-------------');
+    
 }
 function restaurarFormulario() {
     for (let i = 0; i < error.length; i++) {
@@ -47,23 +48,13 @@ function cargarListaUsuarios() {
             }
         };
         if (usuario_nuevo.Username == usuario_repetido) {
-            return console.log('tula'); /* la funcion se corta aca si ya existe el nombre de usuario */
+            return /* la funcion se corta aca si ya existe el nombre de usuario */
         }
         /* una vez confirmado que el usuario no esté repetido, lo agrego a la lista de usuarios */
         registrarUsuario(usuario_nuevo, lista);
         restaurarFormulario();
         console.log('VALIDO!');
     })
-    /* let xhr = new XMLHttpRequest();
-    xhr.open("get", "js/listaUsuarios.json");
-    xhr.addEventListener("load", function() {
-        if (xhr.status == 200) {
-            lista_usuarios = JSON.parse(xhr.response);
-            console.log(lista_usuarios);
-            console.log('+++++++++++++++++');
-        }
-    });
-    xhr.send(); */
 }
 
 
