@@ -11,13 +11,22 @@ let login_usuario = {
 /* LOS USUARIOS REGISTRADOS DEBEN ESTAR EN UN JSON (TAL VEZ?) DE LA CUAL SE PODRIA CHEQUEAR QUE COINCIDAN EL USUARIO Y CONTRASEÑA.
     EN CASO DE QUE NO COINCIDA CON ALGUNO DE LOS 2 DATOS SE TIRA UN ERROR */
 
-function loginYelpCamp() {
+function loginYelpCamp(usuario) {
     /* FUNCION DE LOGIN, VOY A TENER QUE LABURAR CON EL LOCAL STORAGE Y TMB EL HISTORY PARA QUE ME MANDE A LA PAGINA DESDE LA CUAL
-    QUISE HACER LOGIN */
-}
-
+    QUISE HACER LOGIN 
+    CON HISTORY.BACK() TE MANDA AL URL ANTERIOR Y CON CLEAR() PODES BORRAR EL STORAGE CUANDO HAGAN LOGOUT*/
+    /* guardo la información del usuario en el session Storage cosa de que se borre si cierran la ventana */
+    sessionStorage.setItem("Username", usuario.Username);
+    sessionStorage.setItem("Password", usuario.Password);
+    const ventana = document.createElement("div");
+    ventana.classList.value = 'login-exitoso';
+    const imagen = document.createElement("img")
+    /* imagen.style.src = FOTO DE UN TICK VERDE */
+    ventana.appendChild(imagen);
+    const titulo = document.createElement("h3");
+    titulo.innerText = 'Login successfull!';
+    ventana.appendChild(titulo);
 function verificarUsuario(datos_usuario) {
-    /* por ahi me tire error si hago "datos_usuario.Usuario" y "datos_usuario.Contraseña" */
     /* cargo la lista de usuarios y chequeo que alguno coincida con los datos del login */
     return fetch("js/listaUsuarios.json")
     .then(response => response.json())
@@ -39,7 +48,7 @@ function verificarUsuario(datos_usuario) {
                         input_contraseña.style.border = '0';
                     }
                     console.log("HAY UN MATCH!");
-                    /* function loginYelpCamp() */
+                    loginYelpCamp(datos_usuario);
                     break
                 } else {
                     /* si la contraseña no coincide, hago visible el error de validación */
