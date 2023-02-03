@@ -1,3 +1,4 @@
+let cuerpo = document.querySelector('body');
 let formulario = document.querySelector('form');
 let input_usuario = document.getElementById('usuario');
 let input_contraseña = document.getElementById('contraseña');
@@ -20,12 +21,14 @@ function loginYelpCamp(usuario) {
     sessionStorage.setItem("Password", usuario.Password);
     const ventana = document.createElement("div");
     ventana.classList.value = 'login-exitoso';
+    cuerpo.appendChild(ventana);
     const imagen = document.createElement("img")
     /* imagen.style.src = FOTO DE UN TICK VERDE */
     ventana.appendChild(imagen);
     const titulo = document.createElement("h3");
     titulo.innerText = 'Login successfull!';
     ventana.appendChild(titulo);
+}
 function verificarUsuario(datos_usuario) {
     /* cargo la lista de usuarios y chequeo que alguno coincida con los datos del login */
     return fetch("js/listaUsuarios.json")

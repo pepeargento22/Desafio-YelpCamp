@@ -9,6 +9,7 @@
 }
 
 body {
+    position: relative;
     padding-left: 6rem;
 }
 
@@ -41,6 +42,13 @@ body {
 .flex-container {
     display: flex;
     justify-content: space-between;
+}
+
+.login-exitoso {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    background-color: red;
 }
 
 
@@ -142,6 +150,13 @@ footer li strong {
         padding-right: 30%;
         margin-bottom: 1rem;
     }
+
+
+    /* -------- FOOTER -------- */
+
+    footer p {
+        font-size: 1.2rem;
+    }
 }
 
 
@@ -181,12 +196,5 @@ footer li strong {
 
     h1 {
         font-size: 1.5rem;
-    }
-
-
-    /* -------- FOOTER -------- */
-
-    footer p {
-        font-size: 1.2rem;
     }
 }
