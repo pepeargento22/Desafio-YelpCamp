@@ -44,13 +44,6 @@ body {
     justify-content: space-between;
 }
 
-.login-exitoso {
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    background-color: red;
-}
-
 
 /* ----------- HEADER ---------- */
 

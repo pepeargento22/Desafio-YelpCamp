@@ -9,8 +9,6 @@ let login_usuario = {
     "Password": ""
 }
 
-/* LOS USUARIOS REGISTRADOS DEBEN ESTAR EN UN JSON (TAL VEZ?) DE LA CUAL SE PODRIA CHEQUEAR QUE COINCIDAN EL USUARIO Y CONTRASEÑA.
-    EN CASO DE QUE NO COINCIDA CON ALGUNO DE LOS 2 DATOS SE TIRA UN ERROR */
 
 function loginYelpCamp(usuario) {
     /* FUNCION DE LOGIN, VOY A TENER QUE LABURAR CON EL LOCAL STORAGE Y TMB EL HISTORY PARA QUE ME MANDE A LA PAGINA DESDE LA CUAL
@@ -19,19 +17,8 @@ function loginYelpCamp(usuario) {
     /* guardo la información del usuario en el session Storage cosa de que se borre si cierran la ventana */
     sessionStorage.setItem("Username", usuario.Username);
     sessionStorage.setItem("Password", usuario.Password);
-    const ventana = document.createElement("div");
-    ventana.classList.value = 'login-exitoso';
-    cuerpo.appendChild(ventana);
-    const imagen = document.createElement("img") /* ajustar css o meterla adentro de un div */
-    imagen.src = 'Assets/tick-verde.png';
-    ventana.appendChild(imagen);
-    const titulo = document.createElement("h3");
-    titulo.innerText = 'Login successfull!';
-    ventana.appendChild(titulo);
-    const boton = document.createElement("a");
-    boton.href = ''; /* aca va el history.back() */
-    boton.innerText = 'Return';
-    ventana.appendChild(boton);
+    /* utilizo history.back() para volver a la url anterior */
+    history.back();
 }
 function verificarUsuario(datos_usuario) {
     /* cargo la lista de usuarios y chequeo que alguno coincida con los datos del login */

@@ -1,7 +1,24 @@
 let boton_menu = document.querySelector('.menu-tablet');
 let menu = document.querySelector('ul');
+let spanUsuario = document.querySelectorAll('.usuario');
 
 /* CREO QUE VA A COMVENIR HACER UNA FUNCION QUE DETERMINE SI ESTA LOGUEADO O NO Y EN BASE A ESO DEFINA LOS DISPLAY DE LOS LI */
+/* me falta lo de definir los display de los LI */
+function configurarHeader() {
+    let usuario = sessionStorage.getItem("Username");
+    console.log(usuario);
+    if (usuario == null) {
+        return
+    } else {
+        let contraseña = sessionStorage.getItem("Password");
+        console.log(contraseña);
+        spanUsuario.forEach(span => {
+            span.innerText = usuario;
+        })
+    }
+}
+
+document.addEventListener('load', configurarHeader());
 
 boton_menu.addEventListener('click', function(){
     menu.classList.toggle('visible');
