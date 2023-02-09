@@ -1,17 +1,23 @@
 let boton_menu = document.querySelector('.menu-tablet');
 let menu = document.querySelector('ul');
+let itemsMenu = document.querySelectorAll('li');
 let spanUsuario = document.querySelectorAll('.usuario');
 
 /* CREO QUE VA A COMVENIR HACER UNA FUNCION QUE DETERMINE SI ESTA LOGUEADO O NO Y EN BASE A ESO DEFINA LOS DISPLAY DE LOS LI */
-/* me falta lo de definir los display de los LI */
+/* defini los display de los li, me falta testearlo y cambiarles el css que tienen */
 function configurarHeader() {
     let usuario = sessionStorage.getItem("Username");
     console.log(usuario);
+    console.log(itemsMenu);
     if (usuario == null) {
+        for (i=0; i < 3; i+2) {
+            itemsMenu[i].style.display = 'none';
+        }
         return
     } else {
-        let contraseña = sessionStorage.getItem("Password");
-        console.log(contraseña);
+        for (i=3; i < 5; i++) {
+            itemsMenu[i].style.display = 'none';
+        }
         spanUsuario.forEach(span => {
             span.innerText = usuario;
         })
