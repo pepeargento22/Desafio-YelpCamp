@@ -14,14 +14,18 @@
             <img src="Assets/Logo.svg" alt="logo YelpCamp">
             <a class="inicio-desktop" href="index.html">Home</a>
         </div>
-        <div>
-            <span class="usuario"></span>
-            <a class="cerrar-sesion" href="busquedaCampgrounds.html">Logout</a>
-            <a class="inicio-sesion" href="login.html">Login</a>
-            <a class="boton" href="registro.html">Create an account</a>
+        <div class="contenedor-menu">
+            <span class="usuario logueado"></span>
+            <a class="logout logueado" href="">Logout</a>
+            <a class="deslogueado" href="login.html">Login</a>
+            <a class="boton deslogueado" href="registro.html">Create an account</a>
             <img class="menu-tablet" src="Assets/Hamburger Menu.svg" alt="boton menu">
             <ul class="menu">
-                <li class="item">holaaaaa</li>
+                <li class="item-usuario"><span class="usuario"></span></li>
+                <li class="item"><a href="index.html">Home</a></li>
+                <li class="item"><a class="logout" href="">Logout</a></li>
+                <li class="item"><a href="login.html">Login</a></li>
+                <li class="item"><a href="registro.html">Create an account</a></li>
             </ul>
         </div>
     </header>

@@ -1,38 +1,52 @@
+let contenedor = document.querySelector('.contenedor-menu');
+let elem_logueado = document.querySelectorAll('.logueado');
+let elem_deslogueado = document.querySelectorAll('.deslogueado');
+let span_usuario = document.querySelectorAll('.usuario');
 let boton_menu = document.querySelector('.menu-tablet');
 let menu = document.querySelector('ul');
-let itemsMenu = document.querySelectorAll('li');
-let spanUsuario = document.querySelectorAll('.usuario');
+let items_menu = document.querySelectorAll('li');
+let botones_logout = document.querySelectorAll('.logout');
 
-/* CREO QUE VA A COMVENIR HACER UNA FUNCION QUE DETERMINE SI ESTA LOGUEADO O NO Y EN BASE A ESO DEFINA LOS DISPLAY DE LOS LI */
-/* defini los display de los li, me falta testearlo y cambiarles el css que tienen */
+
 function configurarHeader() {
     let usuario = sessionStorage.getItem("Username");
     console.log(usuario);
-    console.log(itemsMenu);
     if (usuario == null) {
-        for (i=0; i < 3; i+2) {
-            itemsMenu[i].style.display = 'none';
+        /* si no hay un usuario logueado, se quitan estos elementos */
+        elem_logueado.forEach(elem => {
+            elem.style.display = 'none';
+        })
+        for (i=0; i < 3; i+=2) {
+            items_menu[i].style.display = 'none';
         }
-        return
     } else {
+        /* si hay un usuario logueado, se quitan estos elementos */
+        elem_deslogueado.forEach(elem => {
+            elem.style.display = 'none';
+        })
         for (i=3; i < 5; i++) {
-            itemsMenu[i].style.display = 'none';
+            items_menu[i].style.display = 'none';
         }
-        spanUsuario.forEach(span => {
+        span_usuario.forEach(span => {
             span.innerText = usuario;
         })
     }
+    /* una vez determinados que elementos quedan visibles, el contenedor pasa a ser visible */
+    contenedor.classList.toggle('contenedor-menu');
 }
+
 
 document.addEventListener('load', configurarHeader());
 
+/* Evento para hacer visible el menu al cliquear en el boton hamburguesa */
 boton_menu.addEventListener('click', function(){
     menu.classList.toggle('visible');
 })
 
+/* Evento para hacer invisible el menu al cliquear fuera del mismo */
 document.addEventListener('click', function(e){
     if (menu.classList.value == 'menu visible') {
-        switch (e.target.classList.value) { //A FUTURO TENGA QUE AGREGAR MAS CASOS CUANDO TENGA EL MENU CON LOS DATOS
+        switch (e.target.classList.value) {
             case "menu-tablet":
             case "menu":
             case "item":
@@ -44,3 +58,13 @@ document.addEventListener('click', function(e){
         }
     }
 })
+
+/* Eventos para desloguearse de la pagina */
+botones_logout.forEach(boton => {
+    boton.addEventListener('click', function() {
+        sessionStorage.clear();
+        history.go(0);
+    })
+})
+
+

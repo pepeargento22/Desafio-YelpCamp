@@ -19,10 +19,12 @@ div {
 }
 
 header div:first-child {
-    position: relative;
     width: auto;
     padding-right: 1rem;
-    padding-top: 0.7rem;
+}
+
+header div.contenedor-menu {
+    opacity: 0;
 }
 
 header div a {
@@ -38,6 +40,14 @@ header div a {
     font-weight: 600;
 }
 
+.usuario {
+    font-weight: 600;
+}
+
+.logout {
+    margin-left: 1rem;
+}
+
 header ul {
     display: none;
     position: absolute;
@@ -48,16 +58,11 @@ header ul {
     z-index: 1;
 }
 
-.menu-tablet,
-.inicio-tablet,
-.usuario,
-.cerrar-sesion {
+.menu-tablet {
     display: none;
 }
 
-
-.inicio-sesion,
-.boton {
+.deslogueado {
     display: inline;
 }
 
@@ -92,9 +97,13 @@ footer {
 
     /* ------------ HEADER ---------- */
 
+    header div:first-child {
+        padding-top: 0.7rem;
+    }
+
     .inicio-desktop,
-    .inicio-sesion,
-    .boton {
+    .logueado,
+    .deslogueado {
         display: none;
     }
 
