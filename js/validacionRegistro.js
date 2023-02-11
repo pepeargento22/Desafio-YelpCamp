@@ -10,7 +10,8 @@ let usuario_nuevo = {
 
 const expresion = /(?=.*[0-9])/; /* el string debe contener al menos 1 numero */
 
-/* METER ASYNC Y AWAIT A LAS FUNCIONES CORRESPONDIENTES */
+/* METER ASYNC Y AWAIT A LAS FUNCIONES CORRESPONDIENTES + AGREGAR DE FORMA PERMANENTE AL JSON LOS USUARIOS NUEVOS + APLICAR EL 
+CONTADOR Y EL HISTORY.GO() COMO EN LOGIN */
 function registrarUsuario(nuevoUsuario, lista_usuarios) {
     lista_usuarios.push(nuevoUsuario);
     console.log(lista_usuarios);

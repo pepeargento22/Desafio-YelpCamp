@@ -9,19 +9,14 @@ let login_usuario = {
     "Password": ""
 }
 
-/* PROBLEMA DE USAR HISTORY.BACK() SI VENGO DE LA PAGINA DE REGISTRO A LA DE LOGIN O VICEVERSA, ME LLEVA A ESA PAGINA. 
-PODRIA ARREGLARLO HACIENDO UN CHECK AL LOADEAR DE QUE SI ESTA LOGUEADO EN ALGUNA DE ESAS PAGINAS (CON 'sessionStorage.getItem()')
-TE MANDE A BUSQUEDACAMPGROUND CON HISTORY.GO() O LOCATION.REPLACE('url') 
 
-OTRA QUE SE ME OCURRE Y ES MEDIO GOD ES A LOS LINKS DEL LOGIN Y DEL REGISTRO QUE TE MANDAN A LA OTRA PAGINA QUE TE MANDEN 
-PASANDO UNA VARIABLE POR EL SESSION STORAGE QUE SERIA UN CONTADOR QUE AUMENTA EN UNO ASI HACES HISTORY.GO(-CONTADOR) O 
-ALGO POR EL ESTILO */
 function loginYelpCamp(usuario) {
     /* guardo la información del usuario en el session Storage cosa de que se borre si cierran la ventana */
     sessionStorage.setItem("Username", usuario.Username);
     sessionStorage.setItem("Password", usuario.Password);
-    /* utilizo history.back() para volver a la url anterior */
-    history.back();
+    /* utilizo el contador y history.go() para volver a la url donde el usuario decide loguearse */
+    let contador_history = sessionStorage.getItem("contador");
+    history.go(-contador_history);
 }
 function verificarUsuario(datos_usuario) {
     /* cargo la lista de usuarios y chequeo que alguno coincida con los datos del login */
