@@ -27,16 +27,7 @@ function validarInput(i, n) {
 /* ESTO ANDA SI NO LE PONGO PATTERN A LOS INPUTS */
 formulario.addEventListener("submit", function(e) {
     e.preventDefault();
-    inputs.forEach((input, index) => {
-        if (input.id != 'boton') {
-            switch (input.id) {
-                case 'nombre_campo':
-                    validarInput(input, index);
-                    break;        
-                case 'precio':
-                    validarInput(input, index);
-                    break;       
-            }
-        }
-    });
+    for (j=0; j < 2; j++) {
+        validarInput(inputs[j], j);
+    }
 })
