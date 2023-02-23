@@ -27,7 +27,15 @@ function validarInput(i, n) {
 /* ESTO ANDA SI NO LE PONGO PATTERN A LOS INPUTS */
 formulario.addEventListener("submit", function(e) {
     e.preventDefault();
-    for (j=0; j < 2; j++) {
-        validarInput(inputs[j], j);
+    let check_logueado = sessionStorage.getItem("Username");
+    if (check_logueado != null) {
+        for (j=0; j < 2; j++) {
+            validarInput(inputs[j], j);
+        }
+        /* ACA SE AÑADIRIA EL CAMPGROUND NUEVO A LA PAGINA */
+    } else {
+        if (errores[3].classList == 'error-validacion') {
+            errores[3].classList.toggle('error-validacion');
+        }
     }
 })
