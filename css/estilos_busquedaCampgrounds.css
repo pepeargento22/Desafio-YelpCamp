@@ -68,9 +68,14 @@ button {
     border: 2px solid #ddd;
 }
 
-.elemento-campground img {
-    width: 100%;
+.contenedor-imagen {
     margin-bottom: 0.5rem;
+}
+
+.contenedor-imagen img {
+    width: 100%;
+    
+    object-fit: cover;
 }
 
 .elemento-campground h3 {
