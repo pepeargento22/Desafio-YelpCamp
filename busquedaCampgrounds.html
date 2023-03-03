@@ -34,8 +34,12 @@
         <div class="buscador">
             <h2>Welcome to YelpCamp!</h2>
             <p>View our hand-picked campgrounds from all over the world, or add your own.</p>
-            <input type="text" name="campground" maxlength="25" placeholder="Search for camps">
-            <button>Search</button>
+            <div class="contenedor-busqueda">
+                <form action="busquedaCampgrounds.html" method="get">
+                    <input type="search" class="barra-busqueda" name="s" maxlength="25" placeholder="Search for camps">
+                    <input type="submit" class="boton-busqueda" value="Search">
+                </form>
+            </div>
             <a href="añadirCampground.html">Or add your own campground</a>
         </div>
         <div class="elemento-campground">
