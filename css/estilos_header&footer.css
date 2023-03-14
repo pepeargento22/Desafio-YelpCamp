@@ -120,7 +120,7 @@ footer {
         display: block
     }
 
-    li {
+    header li {
         padding: 0.2rem 0.4rem;
         background-color: #d4d4d4;
     }
@@ -134,13 +134,13 @@ footer {
     }
 
 
-    li a {
+    header li a {
         display: inline-block;
         width: 100%;
         font-size: 0.9rem;
     }
 
-    li:hover a {
+    header li:hover a {
         font-weight: bold;
         color: #f2f2f2;
     }

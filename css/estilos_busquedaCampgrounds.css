@@ -57,6 +57,21 @@ input.boton-busqueda {
     background-color: black;
 }
 
+.contenedor-busqueda ul {
+    max-width: 250px;
+    margin-top: 0.2rem;
+    list-style-type: none;
+    background-color: white;
+    z-index: 1;
+}
+
+.contenedor-busqueda li {
+    display: none;
+    border: 1px solid #dde;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    font-weight: bold;
+}
+
 .buscador a {
     display: block;
     margin-top: 1rem;
@@ -132,7 +147,7 @@ input.boton-busqueda {
         margin-bottom: 0.5rem;
     }
 
-    .buscador button {
+    input.boton-busqueda {
         width: 100%;
         margin-left: 0;
     }
