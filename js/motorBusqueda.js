@@ -14,11 +14,7 @@ for (i=0; i < nombres_cg.length; i++) {
     lista_cg.appendChild(elems_cg[i]);
 }
 
-
-/*  LA IDEA SERIA TENER TODOS LOS NOMBRES DE LOS CAMPGROUNDS Y CARGARLOS A UNA LISTA. DE AHI CON EL EVENTO KEYUP 
-O ALGO ASI (EL QUE SE ACTIVA AL SOLTAR UNA TECLA) EN EL BUSCADOR TE SALTA EL O LOS ITEMS DE LA LISTA QUE MATCHEAN 
-CON LO QUE ESCRIBIS. AL DARLE SUBMIT, TE TIRA EL ELEMENTO CON EL QUE MATCHEA EN LA PARTE DE ABAJO O TE TIRA QUE NO ENCONTRO NADA  */
-
+/* funciones para el ajuste de altura */
 function calcularAlturaMax(elementos) {
     let h_max = 0;
     elementos.forEach(elem => {
@@ -46,16 +42,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-/* SE ME CAYO A PEDAZOS EL CODIGO ACA PERO LA IDEA ESTA */
+/* con este evento funciona el autocomplete del buscador */ 
 input_barra.addEventListener('keyup', function() {
-    console.log('levante el dedito jeje');
-    let texto = input_barra.value;
+    let texto = input_barra.value.toLowerCase();
     elems_cg.forEach(li => {
-        if(li.style.display == 'block' && li.textContent.contains(texto) == false) {
+        if((li.style.display == 'block' && li.textContent.toLowerCase().includes(texto) == false) || (texto.length == '0')) {
             li.style.display = 'none';
         }
-        if(li.textContent.contains(texto)) {
+        if(li.textContent.toLowerCase().includes(texto) && texto.length > 0) {
             li.style.display = 'block';
         }
     })
 })
+
+/* TENGO QUE MOVER LA UL PARA EL CASO DE >500PX */
+
+/* FALTA AGREGAR EVENTO ONCLICK A LOS LI Y AL BOTON DE SEARCH
+PARA QUE QUEDE EL CAMPGROUND QUE BUSCAMOS O TIRE QUE NO ENCONTRO NADA */
+

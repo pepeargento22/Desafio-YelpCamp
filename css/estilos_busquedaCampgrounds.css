@@ -36,6 +36,10 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.contenedor-busqueda {
+    position: relative;
+}
+
 input.barra-busqueda {
     max-width: 250px;
     padding: 0.7rem 0 1rem 2.5rem;
@@ -49,6 +53,7 @@ input.barra-busqueda {
 
 button, 
 input.boton-busqueda {
+    max-width: 250px;
     padding: 1rem 1.5rem;
     margin-left: 1rem;
     border-radius: 0.3rem;
@@ -58,7 +63,8 @@ input.boton-busqueda {
 }
 
 .contenedor-busqueda ul {
-    max-width: 250px;
+    position: absolute;
+    width: 250px;
     margin-top: 0.2rem;
     list-style-type: none;
     background-color: white;
@@ -70,6 +76,7 @@ input.boton-busqueda {
     border: 1px solid #dde;
     padding: 0.5rem 0 0.5rem 1.5rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .buscador a {
@@ -90,7 +97,6 @@ input.boton-busqueda {
 
 .contenedor-imagen img {
     width: 100%;
-    
     object-fit: cover;
 }
 
