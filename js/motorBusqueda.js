@@ -1,7 +1,7 @@
 let imagenes = document.querySelectorAll('div.contenedor-imagen img');
 let descripciones = document.querySelectorAll('div.elemento-campground p');
 let nombres_cg = document.querySelectorAll('div.elemento-campground h3');
-const lista_cg = document.createElement('ul'); /* FALTA CREAR LOS LI TMB Y QUE TODO SE LE APLIQUE EL APPEND */
+const lista_cg = document.createElement('ul');
 const elems_cg = [];
 let contenedor_cg = document.querySelector('.contenedor-busqueda');
 let input_barra = document.querySelector('.barra-busqueda');
@@ -42,9 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-/* con este evento funciona el autocomplete del buscador */ 
+/* con este evento aparece la lista del autocomplete del buscador */ 
 input_barra.addEventListener('keyup', function() {
     let texto = input_barra.value.toLowerCase();
+    if (lista_cg.style.display == 'none') {
+        lista_cg.style.display = 'block';
+    }
     elems_cg.forEach(li => {
         if((li.style.display == 'block' && li.textContent.toLowerCase().includes(texto) == false) || (texto.length == '0')) {
             li.style.display = 'none';
@@ -55,8 +58,24 @@ input_barra.addEventListener('keyup', function() {
     })
 })
 
-/* TENGO QUE MOVER LA UL PARA EL CASO DE >500PX */
+/* evento para autocompletar el buscador con el elemento cliqueado */
+elems_cg.forEach(li => {
+    li.addEventListener('click', function() {
+        input_barra.value = li.textContent;
+        lista_cg.style.display = 'none';
+    })
+})
 
-/* FALTA AGREGAR EVENTO ONCLICK A LOS LI Y AL BOTON DE SEARCH
+document.addEventListener('click', function(e) {
+    switch (e.target.classList.value) {
+        /* FALTAN LOS CASES DE LOS ELEMENTOS DEL AUTOCOMPLETE */
+        default:
+            if (lista_cg.style.display = 'block') {
+                lista_cg.style.display = 'none';
+            }
+    }
+})
+
+/* FALTA AGREGAR EVENTO ONCLICK AL BOTON DE SEARCH
 PARA QUE QUEDE EL CAMPGROUND QUE BUSCAMOS O TIRE QUE NO ENCONTRO NADA */
 
