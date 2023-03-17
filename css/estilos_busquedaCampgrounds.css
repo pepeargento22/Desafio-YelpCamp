@@ -63,6 +63,7 @@ input.boton-busqueda {
     font-weight: bold;
     color: #f8f8f8;
     background-color: black;
+    margin-bottom: 1rem;
 }
 
 .contenedor-busqueda ul {
@@ -81,11 +82,6 @@ input.boton-busqueda {
     padding: 0.5rem 0 0.5rem 1.5rem;
     font-weight: bold;
     cursor: pointer;
-}
-
-.buscador a {
-    display: block;
-    margin-top: 1rem;
 }
 
 .elemento-campground {

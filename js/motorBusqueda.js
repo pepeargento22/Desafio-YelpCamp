@@ -1,17 +1,20 @@
+let elems_cg = document.querySelectorAll('.elemento-campground');
 let imagenes = document.querySelectorAll('div.contenedor-imagen img');
 let descripciones = document.querySelectorAll('div.elemento-campground p');
 let nombres_cg = document.querySelectorAll('div.elemento-campground h3');
-const lista_cg = document.createElement('ul');
-const elems_cg = [];
+const ul_cg = document.createElement('ul');
+const li_cg = [];
 let contenedor_cg = document.querySelector('.contenedor-busqueda');
+let formulario = document.querySelector('form');
 let input_barra = document.querySelector('.barra-busqueda');
 
-/* Agrego la lista de los campgrounds al documento */
-contenedor_cg.appendChild(lista_cg);
+
+/* agrego la lista de los campgrounds al documento */
+contenedor_cg.appendChild(ul_cg);
 for (i=0; i < nombres_cg.length; i++) {
-    elems_cg[i] = document.createElement('li');
-    elems_cg[i].textContent = nombres_cg[i].textContent;
-    lista_cg.appendChild(elems_cg[i]);
+    li_cg[i] = document.createElement('li');
+    li_cg[i].textContent = nombres_cg[i].textContent;
+    ul_cg.appendChild(li_cg[i]);
 }
 
 /* funciones para el ajuste de altura */
@@ -45,10 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
 /* con este evento aparece la lista del autocomplete del buscador */ 
 input_barra.addEventListener('keyup', function() {
     let texto = input_barra.value.toLowerCase();
-    if (lista_cg.style.display == 'none') {
-        lista_cg.style.display = 'block';
+    if (ul_cg.style.display == 'none') {
+        ul_cg.style.display = 'block';
     }
-    elems_cg.forEach(li => {
+    li_cg.forEach(li => {
         if((li.style.display == 'block' && li.textContent.toLowerCase().includes(texto) == false) || (texto.length == '0')) {
             li.style.display = 'none';
         }
@@ -59,23 +62,38 @@ input_barra.addEventListener('keyup', function() {
 })
 
 /* evento para autocompletar el buscador con el elemento cliqueado */
-elems_cg.forEach(li => {
+li_cg.forEach(li => {
     li.addEventListener('click', function() {
         input_barra.value = li.textContent;
-        lista_cg.style.display = 'none';
+        ul_cg.style.display = 'none';
     })
 })
 
+/* evento que borra la lista de autocomplete al cliquear fuera de la barra */
 document.addEventListener('click', function(e) {
     switch (e.target.classList.value) {
-        /* FALTAN LOS CASES DE LOS ELEMENTOS DEL AUTOCOMPLETE */
+        case "barra-busqueda":
+            break
         default:
-            if (lista_cg.style.display = 'block') {
-                lista_cg.style.display = 'none';
+            if (ul_cg.style.display = 'block') {
+                ul_cg.style.display = 'none';
             }
     }
 })
 
-/* FALTA AGREGAR EVENTO ONCLICK AL BOTON DE SEARCH
-PARA QUE QUEDE EL CAMPGROUND QUE BUSCAMOS O TIRE QUE NO ENCONTRO NADA */
+/* QUE FUNCIONE COMO EL BUSCADOR DE TCGPLAYER */
+formulario.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let texto = input_barra.value.toLowerCase();
+    /* por ahi este for podria ser una funcion llamada buscar() */
+    for (i=0; i < elems_cg.length; i++) {
+        if (texto == nombres_cg[i].innerText.toLowerCase()) {
+            console.log('hay match');
+            return
+        }
+    }
+    console.log('no hubo match :(');
+
+})
+
 
