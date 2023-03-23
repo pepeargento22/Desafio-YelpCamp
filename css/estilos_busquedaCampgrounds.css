@@ -84,6 +84,31 @@ input.boton-busqueda {
     cursor: pointer;
 }
 
+.loader {
+    position: relative;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border: 10px solid lightgray;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    margin-left: -50px;
+    margin-top: 3rem;
+    z-index: 1;
+    -webkit-animation: girar 1.5s linear infinite;
+    animation: girar 1.5s linear infinite;
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes girar {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
 .elemento-campground {
     width: 30%;
     padding: 0.5rem 0.5rem 1rem 0.5rem;

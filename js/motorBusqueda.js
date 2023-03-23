@@ -7,7 +7,9 @@ const li_cg = [];
 let contenedor_cg = document.querySelector('.contenedor-busqueda');
 let formulario = document.querySelector('form');
 let input_barra = document.querySelector('.barra-busqueda');
-
+/* POR SI CONVIENE CREAR EL ELEMENTO ACA Y DESPUES APPENDEARLO AL DOC 
+let simbolo_carga = document.createElement('div');
+simbolo_carga.classList.add('loader'); */
 
 /* agrego la lista de los campgrounds al documento */
 contenedor_cg.appendChild(ul_cg);
@@ -85,6 +87,7 @@ document.addEventListener('click', function(e) {
 formulario.addEventListener('submit', function(e) {
     e.preventDefault();
     let texto = input_barra.value.toLowerCase();
+
     /* por ahi este for podria ser una funcion llamada buscar() */
     for (i=0; i < elems_cg.length; i++) {
         if (texto == nombres_cg[i].innerText.toLowerCase()) {
