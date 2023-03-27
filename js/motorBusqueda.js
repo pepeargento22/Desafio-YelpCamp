@@ -7,9 +7,9 @@ const li_cg = [];
 let contenedor_cg = document.querySelector('.contenedor-busqueda');
 let formulario = document.querySelector('form');
 let input_barra = document.querySelector('.barra-busqueda');
-/* POR SI CONVIENE CREAR EL ELEMENTO ACA Y DESPUES APPENDEARLO AL DOC 
-let simbolo_carga = document.createElement('div');
-simbolo_carga.classList.add('loader'); */
+let loader = document.querySelector('.loader');
+let busqueda_fallida = document.querySelector('.resultado-busqueda');
+
 
 /* agrego la lista de los campgrounds al documento */
 contenedor_cg.appendChild(ul_cg);
@@ -37,6 +37,21 @@ function calcularPadding(elems) {
         padding = altura_total - elems[i].clientHeight;
         elems[i].style.paddingBottom = padding + "px";
     }
+}
+
+/* funcion ejecutada al cliquear el boton de busqueda */
+function buscar() {
+    let texto = input_barra.value.toLowerCase();
+    loader.style.display = 'none';
+    for (i=0; i < elems_cg.length; i++) {
+        if (texto == nombres_cg[i].innerText.toLowerCase()) {
+            console.log('hay match');
+            elems_cg[i].style.display = 'block';
+            return
+        }
+    }
+    console.log('no hubo match :(');
+    busqueda_fallida.style.display = 'block';
 }
 
 /* con esto re-ajusto diferencias en altura que se puedan dar entre elementos de campgrounds por su texto y el ancho */
@@ -83,20 +98,17 @@ document.addEventListener('click', function(e) {
     }
 })
 
-/* QUE FUNCIONE COMO EL BUSCADOR DE TCGPLAYER */
+/* evento del buscador */
 formulario.addEventListener('submit', function(e) {
     e.preventDefault();
-    let texto = input_barra.value.toLowerCase();
-
-    /* por ahi este for podria ser una funcion llamada buscar() */
-    for (i=0; i < elems_cg.length; i++) {
-        if (texto == nombres_cg[i].innerText.toLowerCase()) {
-            console.log('hay match');
-            return
-        }
+    elems_cg.forEach(elem => {
+        elem.style.display = 'none';
+    })
+    if (busqueda_fallida.style.display == 'block') {
+        busqueda_fallida.style.display = 'none';
     }
-    console.log('no hubo match :(');
-
+    loader.style.display = 'block';  
+    setTimeout(buscar, 2000);
 })
 
 

@@ -85,6 +85,7 @@ input.boton-busqueda {
 }
 
 .loader {
+    display: none;
     position: relative;
     left: 50%;
     width: 80px;
@@ -107,6 +108,11 @@ input.boton-busqueda {
 @-webkit-keyframes girar {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
+}
+
+.resultado-busqueda {
+    display: none;
+    font-size: 1.2rem;
 }
 
 .elemento-campground {
@@ -204,7 +210,19 @@ input.boton-busqueda {
         top: 50px;
     }
 
+    .loader {
+        width: 40px;
+        height: 40px;
+    }
+
+    .resultado-busqueda {
+        font-size: 1rem;
+    }
+
     .elemento-campground {
         width: 100%;
     }
+
+    /* CAMBIAR ESTILOS EN < 500PX PARA EL LOADER QUE NO APARECE Y 
+    LA LISTA DE AUTOCOMPLETE QUE CUBRE TODO EL BOTON DE SEARCH */
 }
