@@ -68,9 +68,9 @@ input.boton-busqueda {
 
 .contenedor-busqueda ul {
     position: absolute;
+    top: 50px;
     width: 100%;
-    max-width: 236px;
-    margin-top: 0.2rem;
+    max-width: 250px;
     list-style-type: none;
     background-color: white;
     z-index: 1;
@@ -206,13 +206,17 @@ input.boton-busqueda {
     }
 
     .contenedor-busqueda ul {
-        max-width: 250px;
-        top: 50px;
+        width: 50%;
+        min-width: 140px;
+        margin-top: 0.2rem;
     }
 
     .loader {
         width: 40px;
         height: 40px;
+        border-width: 5px;
+        margin-left: -30px;
+        margin-top: 0.5rem;
     }
 
     .resultado-busqueda {
@@ -222,7 +226,4 @@ input.boton-busqueda {
     .elemento-campground {
         width: 100%;
     }
-
-    /* CAMBIAR ESTILOS EN < 500PX PARA EL LOADER QUE NO APARECE Y 
-    LA LISTA DE AUTOCOMPLETE QUE CUBRE TODO EL BOTON DE SEARCH */
 }
