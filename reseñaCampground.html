@@ -40,7 +40,7 @@
                 cols="30" 
                 placeholder="This was probably the best camp I've visited this past year, definitely recommend visiting any time soon" 
                 required></textarea>
-            <div class="error-validacion"></div>
+            <div class="error-validacion">Must be logged in to submit a review</div>
 
             <input id="boton" type="submit" value="Post Comment">
         </form>
@@ -49,7 +49,17 @@
         <div><img src="Assets/Logo.svg" alt="logo de YelpCamp"></div>
     </footer>
 
+    <div class="fondo-emergente"></div>
+    <div class="ventana-emergente">
+        <h3>Review Sent!</h3>
+        <p>
+            Thank you for sharing your experience with us.
+        </p>
+        <a href="busquedaCampgrounds.html">Return</a>
+    </div>
+
     <script src="js/contadorHistory.js"></script>
     <script src="js/header.js"></script>
+    <script src="js/validacionReseña.js"></script>
 </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YelpCamp - Individual Campground</title>
+    <link rel="stylesheet" href="css/estilos_campground.css">
+    <link rel="stylesheet" href="css/estilos_header&footer.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="Assets/Logo.svg" alt="logo YelpCamp">
+            <a class="inicio-desktop" href="index.html">Home</a>
+        </div>
+        <div class="contenedor-menu">
+            <span class="usuario logueado"></span>
+            <a class="logout logueado" href="">Logout</a>
+            <a class="deslogueado" href="login.html">Login</a>
+            <a class="boton deslogueado" href="registro.html">Create an account</a>
+            <img class="menu-tablet" src="Assets/Hamburger Menu.svg" alt="boton menu">
+            <ul class="menu">
+                <li class="item-usuario"><span class="usuario"></span></li>
+                <li class="item"><a href="index.html">Home</a></li>
+                <li class="item"><a class="logout" href="">Logout</a></li>
+                <li class="item"><a href="login.html">Login</a></li>
+                <li class="item"><a href="registro.html">Create an account</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="flex-container">
+            <div class="flex-item texto">
+                <img src="Assets/Camp Images/High Quality Images/Seven Sisters Waterfall.jpg" alt="picture of Seven Sisters Waterfall">
+                <strong>Seven Sisters Waterfall</strong>
+                <span>$99.99/night</span>
+                <p>
+                    The perfect campground to connect with nature. It is impossible to get 
+                    signal with your phone and the nearest human settlement is 10km away. Seven 
+                    Sisters Waterfall is the place to go if adventure is what you're looking for. 
+                </p>
+                <em>Submitted by Morbius O'Neil</em>
+            </div>
+            <div class="flex-item texto">
+                <div>
+                    <ul>
+                        <li>
+                            <strong>Adam Jones</strong>
+                            <span>13h ago</span>
+                            <p>
+                                Honestly one of the best experiences ever, took us a while to figure out 
+                                how to get there but it was amazing!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Isaac Dylan</strong>
+                            <span>1 day ago</span>
+                            <p>
+                                Travelling changes you as a person, you gain more perspective, this is the 
+                                perfect spot to do that.
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Hudson Luca</strong>
+                            <span>3 days ago</span>
+                            <p>
+                                Definitely recommend going there, not too far and not a lot of people to ruin 
+                                the experience.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <a class="boton" href="reseñaCampground.html"><img src="Assets/Chat Bubble.svg" alt="chat bubble"> Leave a Review</a>
+            </div>
+            <div class="flex-item mapa">
+                <img src="Assets/Camp Images/Compressed Images/Seven Sisters Waterfall.jpg" alt="alternate picture of Seven Sisters Waterfall">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div><img src="Assets/Logo.svg" alt="logo de YelpCamp"></div>
+    </footer>
+
+    <script src="js/contadorHistory.js"></script>
+    <script src="js/header.js"></script>
+</body>
+</html>
