@@ -45,6 +45,42 @@ textarea {
     overflow: hidden;
 }
 
+.drop-area {
+    padding: 1rem;
+    border: dashed 3px #ddd;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.drop-area span {
+    display: block;
+    font-size: 1.4rem;
+    /*font-weight: bold;*/
+    color: #b7b7b7;
+}
+
+.drop-area .contenedor-imagen {
+    width: 100%;
+    text-align: center;
+}
+
+.drop-area img {
+    width: 10%;
+    min-width: 55px;
+}
+
+.drop-area button {
+    padding: 0.5rem 1.5rem;
+    border: solid 3px black;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
 input:last-child {
     font-weight: 600;
     color: #f8f8f8;

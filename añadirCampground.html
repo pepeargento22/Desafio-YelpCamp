@@ -52,13 +52,23 @@
             <div class="error-validacion">The price must be between 1 and 6 digits</div>
 
             <!-- ESTE INPUT LO PODRIA CAMBIAR POR UNO QUE TE PERMITA SUBIR UNA IMAGEN -->
-            <label for="imagen">Image</label>
-            <input 
+            <label for="imagen">Images</label>
+            <!-- <input 
                 id="imagen"
                 name="imagen"
                 type="text"
                 placeholder="www.thepinoytraveler.com/2018/01/mt-ulap-diy-dayhike.html"
-                required>
+                required> -->
+            <div class="drop-area">
+                <div class="contenedor-imagen">
+                    <img src="Assets/drag-and-drop.png" alt="drag and drop icon">
+                </div>
+                <span>Drag&Drop files here</span>
+                <br>
+                <span>or</span>
+                <button>Browse Files</button>
+                <input type="file" id="archivos" hidden multiple>
+            </div>    
             <div class="error-validacion"></div>
 
             <label for="descripcion">Description</label>
@@ -87,9 +97,9 @@
             <a href="busquedaCampgrounds.html">Return</a>
         </div>
     
-    <!-- EN LA VALIDACION AGREGAR ALGO QUE NO TE PERMITA SUBMITEAR A MENOS QUE ESTES LOGUEADO -->
     <script src="js/contadorHistory.js"></script>
     <script src="js/header.js"></script>
+    <script src="js/drag&drop.js"></script>
     <script src="js/validacionCampground.js"></script>
 </body>
 </html>
