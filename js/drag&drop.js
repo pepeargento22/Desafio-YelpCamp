@@ -1,5 +1,5 @@
 let drop_area = document.querySelector('.drop-area');
-let boton = drop_area.querySelector('button');
+let boton = drop_area.querySelector('.boton-dd');
 let input = drop_area.querySelector('#archivos');
 
 /* al cliquear el boton también se cliquea el input file */
@@ -8,20 +8,25 @@ boton.addEventListener('click', function(e) {
     input.click();
 })
 
-/* LA IDEA ES QUE CON ESTOS EVENTOS HAYA UN EFECTO VISUAL DE CUANDO EL USUARIO PUEDE DROPEAR LA IMAGEN Y UNA VEZ SUBIDA QUE FIGURE
-UNA MINIATURA */
 drop_area.addEventListener('dragenter', function() {
-
+    drop_area.classList.toggle('adentro');
+    boton.classList.toggle('adentro');
 })
 
 drop_area.addEventListener('dragleave', function() {
-
+    drop_area.classList.toggle('adentro');
+    boton.classList.toggle('adentro');
 })
 
-drop_area.addEventListener('dragover', function() {
-
+drop_area.addEventListener('dragover', function(e) {
+    e.preventDefault();
 })
 
+
+/* HACER USO DEL OBJETO FILEREADER Y VER COMO PUEDO MANDAR LA MINIATURA DE LAS FOTOS AL DIV PREVIEW */ 
 drop_area.addEventListener('drop', function() {
-
+    drop_area.classList.toggle('adentro');
+    boton.classList.toggle('adentro');
+    /* declaro variable para las fotos dropeadas */
+    const { files } = e.dataTransfer;
 })

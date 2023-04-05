@@ -69,7 +69,7 @@ textarea {
     min-width: 55px;
 }
 
-.drop-area button {
+.boton-dd {
     padding: 0.5rem 1.5rem;
     border: solid 3px black;
     border-radius: 0.5rem;
@@ -79,6 +79,10 @@ textarea {
     color: black;
     background-color: #f7f7f7;
     cursor: pointer;
+}
+
+.adentro {
+    background-color: #366edd;
 }
 
 input:last-child {
