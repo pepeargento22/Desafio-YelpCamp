@@ -1,5 +1,7 @@
 let formulario = document.querySelector('form');
 let inputs = document.querySelectorAll('input');
+let contenedor_imagenes = document.querySelector('preview');
+let lista_imagenes = contenedor_imagenes.querySelectorAll('img');
 let errores = document.querySelectorAll('.error-validacion');
 let fondo_em = document.querySelector('.fondo-emergente');
 let ventana_em = document.querySelector('.ventana-emergente');
@@ -43,3 +45,18 @@ formulario.addEventListener("submit", function(e) {
         }
     }
 })
+
+/* FALTA INCORPORAR ESTO A LA VALIDACION DEL SUBMIT */
+/* chequeo que los archivos subidos tengan extension de imagen */
+function validarArchivos(archivos) {
+    for (i=0; i < archivos.length; i++) {
+        let extensiones_validas = [ 'image/jpg', 'image/jpeg', 'image/png'];
+        let extension_archivo = archivos[i].type;
+        if ( extensiones_validas.includes(extension_archivo) ) {
+            console.log('SON IMAGENES');
+        } else {
+            alert('subiste algo rancio');
+            return
+        }
+    };
+}
