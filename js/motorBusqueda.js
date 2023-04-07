@@ -45,12 +45,10 @@ function buscar() {
     loader.style.display = 'none';
     for (i=0; i < elems_cg.length; i++) {
         if (texto == nombres_cg[i].innerText.toLowerCase()) {
-            console.log('hay match');
             elems_cg[i].style.display = 'block';
             return
         }
     }
-    console.log('no hubo match :(');
     busqueda_fallida.style.display = 'block';
 }
 

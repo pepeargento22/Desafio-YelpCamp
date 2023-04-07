@@ -23,7 +23,6 @@ function verificarUsuario(datos_usuario) {
     return fetch("js/listaUsuarios.json")
     .then(response => response.json())
     .then(lista => {
-        console.log(lista);
         for (i = 0; i < lista.length; i++) {
             /* chequeo que los usuarios coincidan */
             if (datos_usuario.Username == lista[i].Username) {
@@ -39,7 +38,6 @@ function verificarUsuario(datos_usuario) {
                         error[1].classList.toggle('error-validacion');
                         input_contraseña.style.border = '0';
                     }
-                    console.log("HAY UN MATCH!");
                     loginYelpCamp(datos_usuario);
                     break
                 } else {
@@ -65,6 +63,5 @@ formulario.addEventListener('submit', function(e) {
     e.preventDefault();
     login_usuario.Username = input_usuario.value;
     login_usuario.Password = input_contraseña.value;
-    console.log(login_usuario);
     verificarUsuario(login_usuario);
 })

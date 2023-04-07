@@ -10,7 +10,6 @@ let botones_logout = document.querySelectorAll('.logout');
 
 function configurarHeader() {
     let usuario = sessionStorage.getItem("Username");
-    console.log(usuario);
     if (usuario == null) {
         /* si no hay un usuario logueado, se quitan estos elementos */
         elem_logueado.forEach(elem => {

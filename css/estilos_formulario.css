@@ -46,6 +46,7 @@ textarea {
 }
 
 .drop-area {
+    margin-bottom: 0.5rem;
     padding: 1rem;
     border: dashed 3px #ddd;
     text-align: center;
@@ -55,7 +56,6 @@ textarea {
 .drop-area span {
     display: block;
     font-size: 1.4rem;
-    /*font-weight: bold;*/
     color: #b7b7b7;
 }
 
@@ -83,6 +83,29 @@ textarea {
 
 .adentro {
     background-color: #366edd;
+}
+
+.preview,
+.preview > div {
+    margin-bottom: 0.1rem;
+}
+
+.preview img {
+    width: 50px;
+    height: 37.5px;
+}
+
+.preview span {
+    position: relative;
+    top: -12px;
+    margin-left: 0.5rem;
+}
+
+.preview .cruz-imagen {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    cursor: pointer;
 }
 
 input:last-child {

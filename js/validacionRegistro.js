@@ -10,14 +10,11 @@ let usuario_nuevo = {
 
 const expresion = /(?=.*[0-9])/; /* el string debe contener al menos 1 numero */
 
-/* METER ASYNC Y AWAIT A LAS FUNCIONES CORRESPONDIENTES + AGREGAR DE FORMA PERMANENTE AL JSON LOS USUARIOS NUEVOS + APLICAR EL 
-CONTADOR Y EL HISTORY.GO() COMO EN LOGIN */
+
 function registrarUsuario(nuevoUsuario, lista_usuarios) {
     lista_usuarios.push(nuevoUsuario);
-    console.log(lista_usuarios);
-    console.log('-------------');
-    
 }
+
 function restaurarFormulario() {
     for (let i = 0; i < error.length; i++) {
         if (error[i].classList.value != 'error-validacion') {
@@ -27,13 +24,12 @@ function restaurarFormulario() {
         }
     }
 }
+
 function cargarListaUsuarios() {
     /* cargar pagina con Live Server de lo contrario esta funcion tira error por CORS */
     return fetch("js/listaUsuarios.json")
     .then(response => response.json())
     .then(lista => {
-        console.log(lista);
-        console.log('+++++++++++++');
         /* reviso que el usuario no esté repetido */
         let usuario_repetido;
         for (let j = 0; j < lista.length; j++) {
@@ -43,7 +39,6 @@ function cargarListaUsuarios() {
                 if (error[0].classList.value == 'error-validacion') {
                     error[0].classList.toggle('error-validacion');
                     input_usuario.style.border = '2px solid red';
-                    console.log('ERROR');
                 }
                 break;
             }
@@ -54,7 +49,6 @@ function cargarListaUsuarios() {
         /* una vez confirmado que el usuario no esté repetido, lo agrego a la lista de usuarios */
         registrarUsuario(usuario_nuevo, lista);
         restaurarFormulario();
-        console.log('VALIDO!');
     })
 }
 
@@ -82,22 +76,3 @@ formulario.addEventListener('submit', function(e) {
         }
     }
 })
-
-/* PROBANDO COSAS DE JSON */
-let objeto = JSON.parse('{"nombre": "tula", "edad": "69"}');
-
-let objeto2 = {
-    nombre: "",
-    edad: ""
-}
-
-console.log(objeto2);
-
-objeto2.nombre = "sugma";
-console.log(objeto2);
-
-let cadena = JSON.stringify(objeto2);
-
-console.log(objeto);
-console.log(cadena);
-cadena.trim;

@@ -43,20 +43,6 @@ drop_area.addEventListener('drop', function(e) {
 })
 
 
-/* chequeo que los archivos subidos tengan extension de imagen */
-function validarArchivos(archivos) {
-    for (i=0; i < archivos.length; i++) {
-        let extensiones_validas = [ 'image/jpg', 'image/jpeg', 'image/png'];
-        let extension_archivo = archivos[i].type;
-        if ( extensiones_validas.includes(extension_archivo) ) {
-            console.log('SON IMAGENES');
-        } else {
-            alert('subiste algo rancio');
-            return
-        }
-    };
-}
-
 function procesarImagen(img) {
     const lector_imagenes = new FileReader();
 
@@ -69,12 +55,19 @@ function procesarImagen(img) {
         contenedor_img.appendChild(elem_img)
         elem_img.src = imagen_url;
         let nombre_img = document.createElement('span');
-        contenedor_img.appendChild(nombre_img)
+        nombre_img.classList.add('nombre-imagen');
         nombre_img.textContent = img.name;
+        contenedor_img.appendChild(nombre_img)
+        let eliminar_img = document.createElement('span');
+        eliminar_img.classList.add('cruz-imagen');
+        eliminar_img.textContent = 'X';
+        contenedor_img.appendChild(eliminar_img);
+
+        eliminar_img.addEventListener('click', function() {
+            contenedor_img.remove();
+        })
     })
 
     /* readAsDataUrl() me lee los archivos devolviendo un objeto con la propiedad 'result' en la cual contiene el url del archivo */ 
     lector_imagenes.readAsDataURL(img);
 }
-
-/*DESPUES HAY QUE MODIFICAR LOS ESTILOS DE ESTOS ELEMENTOS */

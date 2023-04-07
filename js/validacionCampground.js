@@ -1,7 +1,7 @@
 let formulario = document.querySelector('form');
 let inputs = document.querySelectorAll('input');
-let contenedor_imagenes = document.querySelector('preview');
-let lista_imagenes = contenedor_imagenes.querySelectorAll('img');
+let contenedor_drop = document.querySelector('.drop-area');
+let contenedor_imagenes = document.querySelector('.preview');
 let errores = document.querySelectorAll('.error-validacion');
 let fondo_em = document.querySelector('.fondo-emergente');
 let ventana_em = document.querySelector('.ventana-emergente');
@@ -20,14 +20,12 @@ formulario.addEventListener("submit", function(e) {
     if (check_logueado != null) {
         /* si está logueado, valido los inputs del formulario */
         for (j=0; j < 2; j++) {
-            if (expresiones['exp_' + inputs[j].id].test(inputs[j].value)) {
-                console.log(inputs[j].id + ' VALIDO!'); 
+            if (expresiones['exp_' + inputs[j].id].test(inputs[j].value)) { 
                 if (errores[j].classList.value != 'error-validacion') {
                     errores[j].classList.toggle('error-validacion');
                     inputs[j].style.border = '0';
                 }
             } else {
-                console.log(inputs[j].id + ' INVALIDO');
                 if (errores[j].classList.value == 'error-validacion') {
                     errores[j].classList.toggle('error-validacion');
                     inputs[j].style.border = '2px solid red';
@@ -35,28 +33,32 @@ formulario.addEventListener("submit", function(e) {
                 return
             }
         }
-        console.log('salio todo pipicucu');
-        fondo_em.style.zIndex = '2';
-        ventana_em.style.zIndex = '3';
-        ventana_em.style.opacity = '0.8';
+        /* validacion del drag&drop chequeando que los archivos subidos tengan extension de imagen */
+        let lista_imagenes = contenedor_imagenes.querySelectorAll('.nombre-imagen');
+        let lista_extensiones = []
+        let extensiones_validas = [ 'jpg', 'jpeg', 'png'];
+        for (i=0; i < lista_imagenes.length; i++) {
+            lista_extensiones[i] = lista_imagenes[i].textContent.split('.').pop();
+            if ( extensiones_validas.includes(lista_extensiones[i]) ) {
+                if (errores[2].classList != 'error-validacion') {
+                    errores[2].classList.toggle('error-validacion');
+                    contenedor_drop.style.border = '2px dashed #dddddd';
+                }
+                fondo_em.style.zIndex = '2';
+                ventana_em.style.zIndex = '3';
+                ventana_em.style.opacity = '0.8';
+            } else {
+                if (errores[2].classList == 'error-validacion') {
+                    errores[2].classList.toggle('error-validacion');
+                    contenedor_drop.style.border = '2px dashed red';
+                }
+                return
+            }
+        };
+        
     } else {
         if (errores[3].classList == 'error-validacion') {
             errores[3].classList.toggle('error-validacion');
         }
     }
 })
-
-/* FALTA INCORPORAR ESTO A LA VALIDACION DEL SUBMIT */
-/* chequeo que los archivos subidos tengan extension de imagen */
-function validarArchivos(archivos) {
-    for (i=0; i < archivos.length; i++) {
-        let extensiones_validas = [ 'image/jpg', 'image/jpeg', 'image/png'];
-        let extension_archivo = archivos[i].type;
-        if ( extensiones_validas.includes(extension_archivo) ) {
-            console.log('SON IMAGENES');
-        } else {
-            alert('subiste algo rancio');
-            return
-        }
-    };
-}
