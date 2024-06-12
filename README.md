@@ -18,7 +18,6 @@ Pagina web que contiene descripciones, precios y reseñas de campamentos.
 ### Conceptos
 
 - Display Grid y Flex
-- CORS
 - Expresiones regulares
 - Session storage 
 - History API
